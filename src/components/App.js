@@ -1,6 +1,7 @@
 import React from 'react';
 import SignUp from './SignUp';
 import { Container } from 'react-bootstrap';
+import { AuthProvider } from "../contexts/AuthContext";
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       style={{ minHeight:"100vh" }}
     >
       <div className="w-100" style={{maxWidth: "400px"}} >
-        <SignUp />
+        <AuthProvider>
+          <SignUp />
+        </AuthProvider>
       </div>
     </Container>
   );
