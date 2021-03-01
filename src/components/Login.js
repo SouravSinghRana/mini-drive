@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert  } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 const Login = () => {
     const emailRef = useRef();
@@ -9,22 +9,23 @@ const Login = () => {
     const { login} = useAuth();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+
     const history = useHistory();
 
     const handleSubmit = async(e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         try {
-        setError("");
-        setLoading(true);
-        await login(emailRef.current.value, passwordRef.current.value);
-        console.log('Logged in sucess');
-        history.push('/');
+            setError("");
+            // setLoading(true);
+            await login(emailRef.current.value, passwordRef.current.value);
+            console.log('Logged in sucess');
+            history.push('/') ;
         } catch {
         setError("Failed to sign in");
+        // setLoading(false);
         }
 
-        setLoading(false)
     }
 
 

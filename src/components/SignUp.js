@@ -23,14 +23,13 @@ const SignUp = () => {
 
         try {
         setError("");
-        setLoading(true);
+        // setLoading(true);
         await signUp(emailRef.current.value, passwordRef.current.value);
         history.push('/');
         } catch {
         setError("Failed to create an account");
+        // setLoading(false);
         }
-
-        setLoading(false)
     }
 
 
