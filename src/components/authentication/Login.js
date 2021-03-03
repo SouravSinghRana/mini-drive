@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert  } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { Link, Redirect, useHistory } from "react-router-dom";
+import CenteredContainer from "./CenteredContainer";
 
 const Login = () => {
     const emailRef = useRef();
@@ -30,8 +31,7 @@ const Login = () => {
 
 
     return (
-    <div>
-             
+    <CenteredContainer>     
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
@@ -58,7 +58,7 @@ const Login = () => {
         Need an account? <Link to="/signup">Sign Up</Link> 
       </div>
     
-    </div>
+    </CenteredContainer>
     )
 }
 

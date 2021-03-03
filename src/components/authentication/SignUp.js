@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert  } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import CenteredContainer from "./CenteredContainer";
 
 
 const SignUp = () => {
@@ -34,8 +35,7 @@ const SignUp = () => {
 
 
     return (
-    <div>
-             
+    <CenteredContainer>     
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
@@ -62,8 +62,7 @@ const SignUp = () => {
       <div className="w-100 text-center mt-2">
         Already have an account? <Link to="/login">Log In</Link>
       </div>
-    
-    </div>
+    </CenteredContainer>
     )
 }
 
