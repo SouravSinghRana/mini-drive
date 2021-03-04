@@ -21,7 +21,7 @@ const AddFolderButton = ({ currentFolder }) => {
     const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(currentFolder == null) return
+    if(currentFolder == null) return 
 
     database.folders.add({
         name:name,
