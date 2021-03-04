@@ -2,12 +2,15 @@ import React from 'react';
 import NavbarComponent from './Navbar';
 import { Container } from 'react-bootstrap';
 import { useFolder } from '../../hooks/useFolder';
+import { useParams } from 'react-router-dom'; 
 import AddFolderButton from './AddFolderButton';
 import Folder from './Folder';
 
 const Dashboard = () => {
-const { folder, childFolders } = useFolder("ILrmnGS9l9YduUUz5d7a")
-    // const  { folder , childFolders }  = useFolder("pKZ2R2JnqQ03cC56qCfo");
+
+    const { folderId } = useParams();
+    const { folder, childFolders } = useFolder(folderId)
+    // const  { folder , childFolders }  = useFolder("pKZ2R2JnqQ03cC56qCfo" / "ILrmnGS9l9YduUUz5d7a");
     console.log("childFolders" , childFolders)
 
     return (
