@@ -60,19 +60,31 @@ const AddFileButton = ({currentFolder}) => {
                 })
             })
             uploadTask.snapshot.ref.getDownloadURL().then( url => {
-                console.log(url);
-                database.files.add({
-                    url : url,
-                    name : file.name,
-                    createdAt : database.getCurrentTimeStamp(),
-                    folderId : currentFolder.id,
-                    userId : currentUser.uid
+                // console.log(url);
+                 database.files
+                .where("name", "==", file.name)
+                .where("userId", "==", currentUser.uid)
+                .where("folderId", "==", currentFolder.id)
+                .get()
+                .then(existingFiles => {
+                    const existingFile = existingFiles.docs[0]
+                    if (existingFile) {
+                    existingFile.ref.update({ url: url })
+                    } else {
+                        database.files.add({
+                            url : url,
+                            name : file.name,
+                            createdAt : database.getCurrentTimeStamp(),
+                            folderId : currentFolder.id,
+                            userId : currentUser.uid
+                        })
+                    }
                 })
             })
         })
     }
 
-    return (
+    return(
     <>
         <label className="btn btn-outline-success btn-sm m-0 mr-2">
             <FontAwesomeIcon icon={faFileUpload} />
