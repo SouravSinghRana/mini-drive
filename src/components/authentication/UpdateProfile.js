@@ -10,7 +10,7 @@ const UpdateProfile = () => {
   const passwordConfirmRef = useRef();
   const { currentUser, updatePassword, updateEmail } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading ] = useState(false);
   const history = useHistory();
 
   const handleSubmit = (e) => {
