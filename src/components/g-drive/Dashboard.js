@@ -15,7 +15,7 @@ const Dashboard = () => {
     const { state = { }} = useLocation();
     const { folder, childFolders , childFiles } = useFolder(folderId, state.folder)
     // const  { folder , childFolders }  = useFolder("pKZ2R2JnqQ03cC56qCfo" / "ILrmnGS9l9YduUUz5d7a");
-    console.log("childFiles" , childFiles)
+    // console.log("childFiles" , childFiles)
 
     return (
         <>

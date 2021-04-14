@@ -3,7 +3,7 @@ import { faFile } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const File = ({file}) => {
-    console.log('fi')
+    // console.log('fi')
     return (
         <a
             href={file.url}
